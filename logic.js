@@ -133,7 +133,8 @@ $(document).ready(function () {
 
   //logic for adding a task
   function addTask() {
-    var newBody = $("#newTodoInput").val();
+    var selector = $("#newTodoInput");
+    var newBody = selector.val().trim();
     if (newBody) {
       var newTodo = {
         id: generateId(),
@@ -145,6 +146,8 @@ $(document).ready(function () {
       saveOnStorage(array);
       $("#newTodoInput").val(""); //resetting input fields;
       viewTask(array, newTodo);
+    } else {
+      selector.val("");
     }
   }
 
